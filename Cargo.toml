@@ -7,7 +7,7 @@ license = "MIT"
 description = "Utility functions to work with GDALs Geotransforms to convert between pixel ccordinates and geographical coordinates"
 
 [dependencies]
-gdal = "0.5.0"
+gdal = "0.6.0"
 gdal-sys = "0.2.0"
 geo-types = "0.4.3"
 
