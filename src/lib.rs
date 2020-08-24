@@ -106,11 +106,11 @@ mod tests {
         let bounds = geotransformer.bounds_from_size(dataset.size());
 
         // expected values where collected by using gdalinfo
-        assert_coordinates_relative_eq!(bounds.min, Coordinate {
+        assert_coordinates_relative_eq!(bounds.min(), Coordinate {
             x: 11.3610659,
             y: 32.2014463,
         });
-        assert_coordinates_relative_eq!(bounds.max, Coordinate {
+        assert_coordinates_relative_eq!(bounds.max(), Coordinate {
             x: 28.2838457,
             y: 46.2520256,
         });
@@ -122,9 +122,9 @@ mod tests {
         let (dataset, geotransformer) = open_dataset("data/small.tiff");
         let bounds = geotransformer.bounds_from_size(dataset.size());
 
-        let c1 = geotransformer.coordinate_to_pixel(bounds.min);
+        let c1 = geotransformer.coordinate_to_pixel(bounds.min());
         assert_eq!(c1, (0, 44));
-        let c2 = geotransformer.coordinate_to_pixel(bounds.max);
+        let c2 = geotransformer.coordinate_to_pixel(bounds.max());
         assert_eq!(c2, (52, 0));
     }
 }
